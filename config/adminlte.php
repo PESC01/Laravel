@@ -482,6 +482,77 @@ return [
             'icon' => 'fas fa-file-alt',
             'can' => 'home-access',
         ],
+
+        [
+            'text' => 'Restaurar Datos',
+            'icon' => 'fas fa-undo',
+            'can' => 'personal-create',
+            'submenu' => [
+                [
+                    'text' => 'Medicamentos Eliminados',
+                    'route'  => 'admin.trashed.medicamentos',
+                    'icon'   => 'fas fa-pills',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Dormitorios Eliminados',
+                    'route'  => 'admin.trashed.dormitorios',
+                    'icon'   => 'fas fa-bed',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Pacientes Eliminados',
+                    'route'  => 'admin.trashed.personas',
+                    'icon'   => 'fas fa-user',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Usuarios Eliminados',
+                    'route'  => 'admin.trashed.users',
+                    'icon'   => 'fas fa-user',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Adopciones Eliminadas',
+                    'route'  => 'admin.trashed.adopciones',
+                    'icon'   => 'fas fa-fax',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Canasta Alimentaria Eliminada',
+                    'route'  => 'admin.trashed.canastas',
+                    'icon'   => 'fas fa-fax',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Suminisros Eliminados',
+                    'route' => 'admin.trashed.suministros',
+                    'icon' => 'fas fa-fax',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Proveedores Eliminados',
+                    'route' => 'admin.trashed.proveedores',
+                    'icon' => 'fas fa-user-tie',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Empleados Eliminados',
+                    'route' => 'admin.trashed.empleados',
+                    'icon' => 'fas fa-users',
+                    'can' => 'personal-create',
+                ],
+                [
+                    'text' => 'Documentos Legales Eliminados',
+                    'route' => 'admin.trashed.documentoslegales',
+                    'icon' => 'fas fa-file-alt',
+                    'can' => 'personal-create',
+                ]
+
+
+            ]
+        ],
+
     ],
 
 

@@ -39,9 +39,35 @@ use App\Http\Controllers\InformeController;
 
 
 
+use App\Http\Controllers\AdminRestoreController;
+
+Route::group(['middleware' => ['auth', 'role:Administrador']], function () {
+    Route::get('admin/trashed-medicamentos', [AdminRestoreController::class, 'trashedMedicamentos'])->name('admin.trashed.medicamentos');
+    Route::post('admin/restore-medicamento/{id}', [AdminRestoreController::class, 'restoreMedicamento'])->name('admin.restore.medicamento');
+    Route::post('admin/restore-dormitorio/{id}', [AdminRestoreController::class, 'restoreDormitorio'])->name('admin.restore.dormitorio');
+    Route::get('admin/trashed-dormitorios', [AdminRestoreController::class, 'trashedDormitorios'])->name('admin.trashed.dormitorios');
+    Route::get('admin/trashed-personas', [AdminRestoreController::class, 'trashedPersonas'])->name('admin.trashed.personas');
+    Route::post('admin/restore-persona/{id}', [AdminRestoreController::class, 'restorePersona'])->name('admin.restore.persona');
+    Route::get('admin/trashed-users', [AdminRestoreController::class, 'trashedUsers'])->name('admin.trashed.users');
+    Route::post('admin/restore-user/{id}', [AdminRestoreController::class, 'restoreUser'])->name('admin.restore.user');
+    Route::get('admin/trashed-adopciones', [AdminRestoreController::class, 'trashedAdopciones'])->name('admin.trashed.adopciones');
+    Route::post('admin/restore-adopcion/{id}', [AdminRestoreController::class, 'restoreAdopcion'])->name('admin.restore.adopcion');
+    Route::get('/admin/restore/canastas', [AdminRestoreController::class, 'trashedCanastas'])->name('admin.trashed.canastas');
+    Route::post('/admin/restore/canasta/{fecha}', [AdminRestoreController::class, 'restoreCanasta'])->name('admin.restore.canasta');
+    Route::get('admin/trashed-medicamentos', [AdminRestoreController::class, 'trashedMedicamentos'])->name('admin.trashed.medicamentos');
+    Route::post('admin/restore-medicamento/{id}', [AdminRestoreController::class, 'restoreMedicamento'])->name('admin.restore.medicamento');
+    Route::get('admin/trashed-suministros', [AdminRestoreController::class, 'trashedSuministros'])->name('admin.trashed.suministros');
+    Route::post('admin/restore-suministro/{id}', [AdminRestoreController::class, 'restoreSuministro'])->name('admin.restore.suministro');
+    Route::get('admin/trashed-proveedores', [AdminRestoreController::class, 'trashedProveedores'])->name('admin.trashed.proveedores');
+    Route::post('admin/restore-proveedor/{id}', [AdminRestoreController::class, 'restoreProveedor'])->name('admin.restore.proveedor');
+    Route::get('admin/trashed-empleados', [AdminRestoreController::class, 'trashedEmpleados'])->name('admin.trashed.empleados');
+    Route::post('admin/restore-empleado/{id}', [AdminRestoreController::class, 'restoreEmpleado'])->name('admin.restore.empleado');
+    Route::get('admin/trashed-documentoslegales', [AdminRestoreController::class, 'trashedDocumentosLegales'])->name('admin.trashed.documentoslegales');
+    Route::post('admin/restore-documentoLegal/{id}', [AdminRestoreController::class, 'restoreDocumentoLegal'])->name('admin.restore.documentoLegal');
+});
 
 
-
+Route::post('admin/restore-medicamentos', [AdminRestoreController::class, 'restoreMedicamentos'])->name('admin.restore.medicamentos');
 
 
 Route::resource('informes', InformeController::class);
