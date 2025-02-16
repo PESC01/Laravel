@@ -32,7 +32,7 @@
                             <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="lead"><b>{{ $persona->nombres }}{{ $persona->apellidos }}</b></h2>
+                                        <h2 class="lead"><b>{{ $persona->nombres }} {{ $persona->apellidos }}</b></h2>
                                         <p class="text-muted text-sm"><b>Motivo ingreso: </b>
                                             {{ $persona->motivo_ingreso }} </p>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
