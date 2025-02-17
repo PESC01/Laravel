@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Informe;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use App\Models\DocumentoLegal;
 
 class HomeController extends Controller
 {
@@ -75,6 +76,35 @@ class HomeController extends Controller
         $motivos = $motivosIngreso->pluck('motivo_ingreso');
         $totalesMotivos = $motivosIngreso->pluck('total');
 
+        if (auth()->user()->hasRole('Doctor')) {
+            return view('home_doctor', compact('totalPersonas', 'personas', 'empleados', 'days', 'counts', 'genero', 'total', 'rolesCount', 'motivos', 'totalesMotivos', 'totalInformes'));
+        }
+        if (auth()->user()->hasRole('Abogado')) {
+            // Total de documentos legales
+            $totalDocumentos = DocumentoLegal::count();
+
+            // Agrupar documentos legales según la extensión del archivo (extraída de "imagen_documento")
+            $documentsByExtension = DocumentoLegal::select(
+                DB::raw('LOWER(SUBSTRING_INDEX(imagen_documento, ".", -1)) as extension'),
+                DB::raw('COUNT(*) as total')
+            )
+                ->groupBy('extension')
+                ->get();
+
+            $legalDocTypes = $documentsByExtension->pluck('extension');
+            $legalDocCounts = $documentsByExtension->pluck('total');
+
+            return view('home_abogado', compact(
+                'totalPersonas',
+                'personas',
+                'empleados',
+                'days',
+                'counts',
+                'totalDocumentos',
+                'legalDocTypes',
+                'legalDocCounts'
+            ));
+        }
         return view('home', compact('totalPersonas', 'personas', 'empleados', 'days', 'counts', 'genero', 'total', 'rolesCount', 'motivos', 'totalesMotivos', 'totalInformes'));
     }
 }

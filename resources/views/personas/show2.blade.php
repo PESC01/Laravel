@@ -1,4 +1,3 @@
-{{-- filepath: /c:/xampp/htdocs/esther-app/resources/views/personas/show2.blade.php --}}
 <div class="row justify-content-center">
     <div class="col-md-4">
         <div class="resident">

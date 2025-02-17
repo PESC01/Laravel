@@ -400,7 +400,7 @@
         </div>
     </div>
 
-    {{-- PRUEBAS MEDICAS --}}
+    {{-- ANTECEDENTES MEDICOS --}}
     <div class="modal fade" id="antecedentemedicoModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -463,7 +463,7 @@
         </div>
     </div>
 
-    {{-- ANTECEDENTES MEDICOS --}}
+    {{-- PRUEBAS MEDICAS --}}
     <div class="modal fade" id="pruebamedicaeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -480,7 +480,7 @@
                 <div class="modal-body">
                     <div class="pull-right">
                         <a class="btn btn-primary" href="{{ route('pruebas.create', ['persona' => $persona->id]) }}">
-                            Agregar nuevo incidente</a>
+                            Agregar nueva prueba</a>
                     </div>
                     <hr>
                     <div class="table-responsive">

@@ -67,6 +67,11 @@ Route::group(['middleware' => ['auth', 'role:Administrador']], function () {
 });
 
 
+Route::group(['middleware' => ['auth', 'role:Doctor']], function () {
+    Route::get('personas/show_doctor/{id}', [PersonaController::class, 'show_doctor'])->name('personas.show_doctor');
+});
+Route::resource('personas', PersonaController::class)->middleware('role:Admin');
+
 Route::post('admin/restore-medicamentos', [AdminRestoreController::class, 'restoreMedicamentos'])->name('admin.restore.medicamentos');
 
 

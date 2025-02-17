@@ -430,6 +430,7 @@ return [
                     'text' => 'Suministros',
                     'url' => 'almacen/suministros',
                     'icon' => 'fas fa-fw fa-box',
+                    'can' => 'suministro-list',
                     'submenu' => [
                         [
                             'text' => 'Lista',

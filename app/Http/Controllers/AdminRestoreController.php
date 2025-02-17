@@ -154,7 +154,7 @@ class AdminRestoreController extends Controller
     }
     public function trashedDocumentosLegales()
     {
-        $documentosLegales = DocumentoLegal::onlyTrashed()->get();
+        $documentosLegales = DocumentoLegal::onlyTrashed()->with('persona')->get();
         return view('admin.restore.documentoslegales', compact('documentosLegales'));
     }
 
