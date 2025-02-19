@@ -30,16 +30,14 @@
                                         <h2 class="lead"><b>{{ $persona->nombres }} {{ $persona->apellidos }}</b></h2>
                                         <p class="text-muted text-sm"><b>Motivo ingreso: </b>
                                             {{ $persona->motivo_ingreso }} </p>
-                                        <ul class="ml-4 mb-0 fa-ul text-muted">
-                                            <li class="small"><span class="fa-li"><i
-                                                        class="fas fa-lg fa-building"></i></span>
-                                                Address: Calle XYZ</li>
-                                            <li class="small"><span class="fa-li"><i
-                                                        class="fas fa-lg fa-phone"></i></span>
-                                                Phone #: 448389394</li>
-                                        </ul>
+
                                     </div>
-                                    <div>
+
+                                    <div class="col-5 text-center">
+                                        <img src="{{ asset('image/' . $persona->image) }}" alt="user-avatar"
+                                            class="img-circle img-fluid">
+                                    </div>
+                                    <div class="col-12">
                                         <strong>Informes:</strong>
                                         <ul>
                                             @foreach ($persona->informes as $informe)
@@ -50,10 +48,6 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-                                    </div>
-                                    <div class="col-5 text-center">
-                                        <img src="{{ asset('image/' . $persona->image) }}" alt="user-avatar"
-                                            class="img-circle img-fluid">
                                     </div>
                                 </div>
                             </div>

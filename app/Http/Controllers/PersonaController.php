@@ -52,8 +52,8 @@ class PersonaController extends Controller
         $this->validate(
             $request,
             [
-                "nombres"               => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/",
-                "apellidos"             => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/",
+                "nombres"               => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)?$/",
+                "apellidos"             => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)?$/",
                 "fech_nac"              =>          "required",
                 "ci"                    => "required|numeric|unique:personas,ci",
                 "image"                 =>          "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
@@ -67,7 +67,9 @@ class PersonaController extends Controller
             ],
             [
                 'nombres.required'              => 'El campo nombres es obligatorio.',
+                'nombres.regex'                 => 'El campo nombres solo permite letras y un espacio',
                 'apellidos.required'            => 'El campo apellidos es obligatorio.',
+                'apellidos.regex'               => 'El campo apellidos solo permite letras y un espacio',
                 'fech_nac.required'             => 'El campo fecha de nacimiento es obligatorio.',
                 'ci.required'                   => 'El campo cédula de identidad es obligatorio.',
                 'ci.numeric'                    => 'El campo cédula de identidad debe ser un número.',
@@ -172,8 +174,8 @@ class PersonaController extends Controller
         $this->validate(
             $request,
             [
-                "nombres"               => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/",
-                "apellidos"             => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ\s]+$/",
+                "nombres"               => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)?$/",
+                "apellidos"             => "required|regex:/^[a-zA-ZáéíóúÁÉÍÓÚ]+(\s[a-zA-ZáéíóúÁÉÍÓÚ]+)?$/",
                 "fech_nac" => "required",
                 "ci"                    => "required|numeric|unique:personas,ci",
                 "image" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
@@ -187,7 +189,9 @@ class PersonaController extends Controller
             ],
             [
                 'nombres.required'              => 'El campo nombres es obligatorio.',
+                'nombres.regex'                 => 'El campo nombres solo permite letras y un espacio',
                 'apellidos.required'            => 'El campo apellidos es obligatorio.',
+                'apellidos.regex'               => 'El campo apellidos solo permite letras y un espacio',
                 'fech_nac.required'             => 'El campo fecha de nacimiento es obligatorio.',
                 'ci.numeric'                    => 'El campo cédula de identidad debe ser un número.',
                 'ci.required'                   => 'El campo cédula de identidad es obligatorio.',
